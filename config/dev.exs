@@ -52,7 +52,7 @@ config :marusya, MarusyaWeb.Endpoint,
       ~r{priv/static/.*(js|css|png|jpeg|jpg|gif|svg)$},
       ~r{priv/gettext/.*(po)$},
       ~r{lib/marusya_web/views/.*(ex)$},
-      ~r{lib/marusya_web/templates/.*(eex)$}
+      ~r{lib/marusya_web/templates/.*(eex|slim|slime)$}
     ]
   ]
 
