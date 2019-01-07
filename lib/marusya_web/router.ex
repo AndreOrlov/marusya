@@ -30,7 +30,7 @@ defmodule MarusyaWeb.Router do
 
     get "/login", SessionController, :new
     post "/login", SessionController, :login
-    post "/logout", SessionController, :logout
+    get "/logout", SessionController, :logout
   end
 
   # Definitely logged in scope
