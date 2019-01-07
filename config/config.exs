@@ -17,6 +17,10 @@ config :marusya, MarusyaWeb.Endpoint,
   render_errors: [view: MarusyaWeb.ErrorView, accepts: ~w(html json)],
   pubsub: [name: Marusya.PubSub, adapter: Phoenix.PubSub.PG2]
 
+config :marusya, AuthMe.UserManager.Guardian,
+       issuer: "marusya",
+       secret_key: "V5Tfzv52iNE6Fs7wKG+RmLp8bJPBqbujuDH1ms2CBZfUyWmnnoIMEsBTsZz4sTGb"
+
 # Configures Elixir's Logger
 config :logger, :console,
   format: "$time $metadata[$level] $message\n",
