@@ -104,8 +104,8 @@ defmodule Marusya.Accounts do
     User.changeset(user, %{})
   end
 
-  def authenticate_user(username, plain_text_password) do
-    query = from u in User, where: u.username == ^username
+  def authenticate_user(nickname, plain_text_password) do
+    query = from u in User, where: u.nickname == ^nickname
     case Repo.one(query) do
       nil ->
         Bcrypt.dummy_checkpw()

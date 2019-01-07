@@ -13,9 +13,8 @@ defmodule MarusyaWeb.SessionController do
     end
   end
 
-
-  def login(conn, %{"user" => %{"username" => username, "password" => password}}) do
-    Accounts.authenticate_user(username, password)
+  def login(conn, %{"user" => %{"nickname" => nickname, "password" => password}}) do
+    Accounts.authenticate_user(nickname, password)
     |> login_reply(conn)
   end
 

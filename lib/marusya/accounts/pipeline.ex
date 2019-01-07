@@ -1,6 +1,6 @@
 defmodule Marusya.Accounts.Pipeline do
   use Guardian.Plug.Pipeline,
-      otp_app: :auth_me,
+      otp_app: :marusya,
       error_handler: Marusya.Accounts.ErrorHandler,
       module: Marusya.Accounts.Guardian
 
