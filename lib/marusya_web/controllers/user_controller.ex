@@ -1,8 +1,7 @@
 defmodule MarusyaWeb.UserController do
   use MarusyaWeb, :controller
 
-  alias Marusya.Accounts
-  alias Marusya.Accounts.User
+  alias Marusya.{Accounts, Accounts.User, Accounts.Guardian}
 
   def index(conn, _params) do
     users = Accounts.list_users()
@@ -19,7 +18,8 @@ defmodule MarusyaWeb.UserController do
       {:ok, user} ->
         conn
         |> put_flash(:info, "User created successfully.")
-        |> redirect(to: Routes.user_path(conn, :show, user))
+        |> Guardian.Plug.sign_in(user)
+        |> redirect(to: "/secret_temp")
 
       {:error, %Ecto.Changeset{} = changeset} ->
         render(conn, "new.html", changeset: changeset)
