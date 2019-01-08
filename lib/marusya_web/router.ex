@@ -4,6 +4,7 @@ defmodule MarusyaWeb.Router do
   # Our pipeline implements "maybe" authenticated. We'll use the `:ensure_auth` below for when we need to make sure someone is logged in.
   pipeline :auth do
     plug Marusya.Accounts.Pipeline
+    plug Marusya.Accounts.CurrentUser
   end
 
   # We use ensure_auth to fail if there is no one logged in

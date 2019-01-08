@@ -3,17 +3,23 @@ defmodule MarusyaWeb.UserController do
 
   alias Marusya.{Accounts, Accounts.User, Accounts.Guardian}
 
-  def index(conn, _params) do
+  # Add param current_user to controller action
+  def action(conn, _) do
+    apply(__MODULE__, action_name(conn),
+      [conn, conn.params, conn.assigns.current_user])
+  end
+
+  def index(conn, _params, _current_user) do
     users = Accounts.list_users()
     render(conn, "index.html", users: users)
   end
 
-  def new(conn, _params) do
+  def new(conn, _params, _current_user) do
     changeset = Accounts.change_user(%User{})
     render(conn, "new.html", changeset: changeset)
   end
 
-  def create(conn, %{"user" => user_params}) do
+  def create(conn, %{"user" => user_params}, _current_user) do
     case Accounts.create_user(user_params) do
       {:ok, user} ->
         conn
@@ -26,18 +32,18 @@ defmodule MarusyaWeb.UserController do
     end
   end
 
-  def show(conn, %{"id" => id}) do
+  def show(conn, %{"id" => id}, _current_user) do
     user = Accounts.get_user!(id)
     render(conn, "show.html", user: user)
   end
 
-  def edit(conn, %{"id" => id}) do
+  def edit(conn, %{"id" => id}, _current_user) do
     user = Accounts.get_user!(id)
     changeset = Accounts.change_user(user)
     render(conn, "edit.html", user: user, changeset: changeset)
   end
 
-  def update(conn, %{"id" => id, "user" => user_params}) do
+  def update(conn, %{"id" => id, "user" => user_params}, _current_user) do
     user = Accounts.get_user!(id)
 
     case Accounts.update_user(user, user_params) do
@@ -51,7 +57,7 @@ defmodule MarusyaWeb.UserController do
     end
   end
 
-  def delete(conn, %{"id" => id}) do
+  def delete(conn, %{"id" => id}, _current_user) do
     user = Accounts.get_user!(id)
     {:ok, _user} = Accounts.delete_user(user)
 
