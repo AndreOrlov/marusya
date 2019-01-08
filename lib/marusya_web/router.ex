@@ -28,6 +28,8 @@ defmodule MarusyaWeb.Router do
 
     get "/", PageController, :index
 
+    resources "/users", UserController
+
     get "/login", SessionController, :new
     post "/login", SessionController, :login
     get "/logout", SessionController, :logout

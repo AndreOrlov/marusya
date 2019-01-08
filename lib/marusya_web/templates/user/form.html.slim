@@ -1,0 +1,14 @@
+= form_for @changeset, @action, fn f ->
+  = if @changeset.action do
+    .alert.alert-danger
+      p Oops, something went wrong! Please check the errors below.
+  .form-group
+    = label f, :nickname, class: "control-label"
+    = text_input f, :nickname, class: "form-control"
+    = error_tag f, :nickname
+  .form-group
+    = label f, :password, class: "control-label"
+    = password_input f, :password, class: "form-control"
+    = error_tag f, :password
+  div
+    = submit "Save"
