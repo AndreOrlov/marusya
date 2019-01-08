@@ -28,7 +28,7 @@ defmodule MarusyaWeb.Router do
 
     get "/", PageController, :index
 
-    resources "/users", UserController
+    resources "/users", UserController, only: [:new, :create]
 
     get "/login", SessionController, :new
     post "/login", SessionController, :login
@@ -38,6 +38,8 @@ defmodule MarusyaWeb.Router do
   # Definitely logged in scope
   scope "/", MarusyaWeb do
     pipe_through [:browser, :auth, :ensure_auth]
+
+    resources "/users", UserController
 
     get "/secret_temp", PageController, :secret_temp
   end
