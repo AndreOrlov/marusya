@@ -4,6 +4,7 @@ defmodule MarusyaWeb.UserController do
   alias Marusya.{Accounts, Accounts.User, Accounts.Guardian}
 
   # Add param current_user to controller action
+  # See https://medium.com/@andreichernykh/phoenix-simple-authentication-authorization-in-step-by-step-tutorial-form-dc93ea350153
   def action(conn, _) do
     apply(__MODULE__, action_name(conn),
       [conn, conn.params, conn.assigns.current_user])
