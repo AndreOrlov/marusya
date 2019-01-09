@@ -1,13 +1,14 @@
-h2 Login
-= form_for @changeset, @action, fn f ->
-  .form-group
-    = label f, :nickname, class: "control-label"
-    = text_input f, :nickname, class: "form-control"
-    = error_tag f, :nickname
-  .form-group
-    = label f, :password, class: "control-label"
-    = password_input f, :password, class: "form-control"
-    = error_tag f, :password
-  / TODO: add password_confirm
-  .form-group
-    = submit "Submit", class: "btn btn-primary"
+.col-sm-6.offset-sm-3
+  .text-center
+    h2 Login
+  = form_for @changeset, @action, fn f ->
+    .form-group
+      = label f, :nickname, class: "control-label"
+      = text_input f, :nickname, class: "form-control"
+      = error_tag f, :nickname
+    .form-group
+      = label f, :password, class: "control-label"
+      = password_input f, :password, class: "form-control"
+      = error_tag f, :password
+    .form-group
+      = submit "SignIn", class: "btn btn-primary"
