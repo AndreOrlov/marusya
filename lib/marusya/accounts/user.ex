@@ -8,6 +8,8 @@ defmodule Marusya.Accounts.User do
     field :nickname, :string
     field :password, :string
 
+    has_many :exercises, Marusya.Todos.Exercise
+
     timestamps()
   end
 
