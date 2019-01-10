@@ -2,12 +2,11 @@ defmodule Marusya.Todos.Exercise do
   use Ecto.Schema
   import Ecto.Changeset
 
-
   schema "exercises" do
-    field :desciption, :string
+    field :description, :string
     field :done, :boolean
 
-    belongs_to :users, Marusya.Accounts.User
+    belongs_to :user, Marusya.Accounts.User
 
     timestamps()
   end

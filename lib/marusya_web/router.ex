@@ -41,6 +41,7 @@ defmodule MarusyaWeb.Router do
     pipe_through [:browser, :auth, :ensure_auth]
 
     resources "/users", UserController
+    resources "/exercises", ExerciseController
 
     get "/secret_temp", PageController, :secret_temp
   end

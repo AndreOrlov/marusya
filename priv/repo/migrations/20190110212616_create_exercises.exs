@@ -9,6 +9,5 @@ defmodule Marusya.Repo.Migrations.CreateExercises do
 
       timestamps()
     end
-
   end
 end
