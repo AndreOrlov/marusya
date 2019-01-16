@@ -3,7 +3,8 @@
   "license": "MIT",
   "scripts": {
     "deploy": "webpack --mode production",
-    "watch": "webpack --mode development --watch"
+    "watch": "webpack --mode development --watch",
+    "analyze": "./node_modules/.bin/webpack --profile --json > ./node_modules/stats.json && ./node_modules/.bin/webpack-bundle-analyzer ./node_modules/stats.json"
   },
   "dependencies": {
     "bootstrap": "^4.2.1",
