@@ -6,7 +6,8 @@ html lang="en"
     meta content="" name="description" /
     meta content="" name="author" /
     title Marusya
-    | <link rel="stylesheet" href="<%= Routes.static_path(@conn, "/css/app.css") %>"/
+    link rel="stylesheet" href="#{Routes.static_path(@conn, "/css/vendor.app.css")}"
+    link rel="stylesheet" href="#{Routes.static_path(@conn, "/css/app.css")}"
   body
     /! Navigation
     nav.navbar.navbar-expand-lg.navbar-dark.bg-dark.fixed-top
@@ -51,4 +52,5 @@ html lang="en"
       .container
         p.m-0.text-center.text-white Copyright &copy; Your Website 2018
       /! /.container
+    script type="text/javascript" src="#{Routes.static_path(@conn, "/js/vendor.js")}"
     script type="text/javascript" src="#{Routes.static_path(@conn, "/js/app.js")}"
